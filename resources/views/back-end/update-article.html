@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>Ada- 修改文章</title>
+    <link rel="shortcut icon" href="/public/images/favicon.ico" type="image/x-icon"/>
+    <script src="/public/js/common/jquery-1.12.4.min.js" type="text/javascript"></script>
+    <script src="/public/tinymce/js/tinymce/tinymce.min.js" type="text/javascript"></script>
+    <script src="/public/tinymce/js/tinymce/plugins/jquery.form.js" type="text/javascript"></script>
+    <script>
+        tinymce.init({
+            selector: "textarea",
+            imageupload_url: "/api/admin/article/write/image",  // 上传图片url
+            menubar: false,
+            convert_urls: false,
+            // upload_image_url: '/admin/article/image',
+            height: 400,
+            language: 'zh_CN',
+            plugins: [
+                'advlist autolink lists link  charmap print preview hr anchor pagebreak',
+                'searchreplace wordcount visualblocks visualchars code fullscreen',
+                'insertdatetime media nonbreaking save table contextmenu directionality',
+                'emoticons template paste textcolor colorpicker textpattern imagetools codesample toc help image link imageupload'
+            ],
+            toolbar1: 'undo redo | insert | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link',
+            toolbar2: 'print preview media | forecolor backcolor emoticons | codesample help image imageupload',
+            image_advtab: true,
+            templates: [
+                {title: 'Test template 1', content: 'Test 1'},
+                {title: 'Test template 2', content: 'Test 2'}
+            ]
+        });
+    </script>
+
+    <style>
+        .mce-window {
+            transform: initial !important;
+        }
+    </style>
+
+</head>
+<body>
+<form id="form" enctype="multipart/form-data">
+    <input id="title" name="title" placeholder="在此输入你的文章标题"
+           style="width: 900px; height: 35px; font-size: 25px"/><br/><br/>
+
+    <input id="summary" type="text" name="summary" placeholder="在此输入摘要(250个字符内), 下方 max-width=840"
+           style="width: 900px; height: 90px; font-size: 18px"><br/><br/>
+
+
+    <textarea id="content" name="content" style="width:900px; height:800px;" title="content"></textarea><br/><br/>
+
+    <label for="tags">选择标签 : </label><br>
+    <select name="tags" id="tags" style="min-width: 900px" multiple="multiple">
+
+    </select><br><br><br>
+    <input id="submit" type="button" value="提交" style="font-size: 25px"/>
+</form>
+
+
+<script src="/public/js/common.js" type="text/javascript"></script>
+<!--<script src="/public/js/back-end/update-article.js" type="text/javascript"></script>-->
+<script>
+    document.write('<script src="/public/js/back-end/update-article.js?t=' + new Date().getTime() + '" type="text/javascript"><\/script>');
+</script>
+</body>
+</html>

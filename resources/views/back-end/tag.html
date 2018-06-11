@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+    <title>Ada-标签管理</title>
+    <meta charset="utf-8">
+    <meta name="author" content="sumuzhe"/>
+    <meta name="description" content="sumuzhe的个人博客"/>
+    <meta name="description" content="sumuzhe的个人博客"/>
+    <link rel="shortcut icon" type="image/x-icon" href="/public/images/favicon.ico"/>
+    <link href="/public/css/backend/main.css" rel="Stylesheet" type="text/css"/>
+    <link href="/public/css/backend/index.css" rel="stylesheet" type="text/css"/>
+    <link href="/public/css/backend/style.css" rel="stylesheet" type="text/css"/>
+
+    <link href="/public/css/templatemo-style.css" rel="stylesheet" type="text/css"/>
+    <link href="/public/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    <link href="/public/css/main.css" rel="stylesheet" type="text/css"/>
+
+    <style type="text/css">
+        #letters input {
+            padding: 2px 4px;
+        }
+    </style>
+
+</head>
+<body>
+
+<p style="text-align: center">
+    <a href="/">前台 &nbsp;&nbsp;|&nbsp;&nbsp; </a>
+    <a href="/api/admin/sign-out" onclick="signOut(); return false;">登出</a>
+</p>
+<br><br>
+
+<div id="wrap">
+    <!--引入中部导航栏-->
+    <div class="tabs_header">
+        <ul id="ul_tab" class="tabs" style="width: 120%">
+            <li><a href="/admin"><span>文章管理</span></a></li>
+            <li><a href="/admin/tag"><span>标签管理</span></a></li>
+            <li><a href="/admin/comment"><span>评论管理</span></a></li>
+            <li><a href="/admin/letter"><span>信件管理</span></a></li>
+            <li><a href="/admin/sign-in-log"><span>登录日志</span></a></li>
+            <li><a href="/admin/read-log/"><span>阅读记录</span></a></li>
+            <li><a href="javascript:void(0);" onclick="alert('待开发')"><span>草稿箱</span></a></li>
+            <li><a href="javascript:void(0);" onclick="alert('待开发')"><span>回收站</span></a></li>
+            <li><a href="/admin/article/write" target="_blank"><span>写新文章</span></a></li>
+        </ul>
+    </div>
+
+    <table id="lstBox">
+        <thead>
+        <tr>
+        <tr>
+            <th class="tdleft">标签名</th>
+            <th>文章数</th>
+            <th>操作</th>
+        </tr>
+        </thead>
+
+        <tbody id="content">
+            <!--<tr>
+                <td class="tdleft">
+                    <span style="display: inline;" class="name"><a href="art/cat/${cat.catId }/1" class="red" target="_blank">${cat.catName }</a></span>
+                    <span style="display: none;" class="input" id="1">
+							<input type="text" maxlength="30" id="${cat.catId }">
+							<a href="javascript:void(0);" onclick="javascript:editCatOK(this)">保存</a>
+							<a href="javascript:void(0);" onclick="javascript:cancel(this);">取消</a>
+						</span>
+                </td>
+                <td>${cat.artCount }</td>
+                <td>
+                    <a href="javascript:void(0);" onclick="javascript:del(${cat.catId});">删除</a><br/>
+                </td>
+            </tr>-->
+        </tbody>
+    </table>
+    <br/>
+    <hr>
+    <div style="margin-top: 20px;">
+        <input id="txtCat" type="text" class="t_input" size="50" maxlength="30" title=""/>
+        <input id="btnAdd" type="button" value="添加分类"/><br/>
+        <span style="font-size: 10px; color: gray;" id="addCatError"><i>类名长度应在2 ~ 20之间</i></span>
+    </div>
+    <!-- pagination section -->
+    <div style="text-align:center;">
+        <ul class="pagination">
+        </ul>
+    </div>
+</div>
+
+
+<script src="/public/js/common/jquery-1.12.4.min.js" type="text/javascript"></script>
+<script src="/public/js/common.js" type="text/javascript"></script>
+<script src="/public/js/back-end/tag.js" type="text/javascript"></script>
+
+</body>
+</html>

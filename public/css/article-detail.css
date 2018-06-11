@@ -1,0 +1,205 @@
+.container {
+    padding: 10px 0px;
+}
+
+.post {
+    margin: 0 auto
+}
+
+.post [rel="gallery"]:after {
+    background: #bebbaa;
+}
+
+.post [rel="gallery"]:after {
+    background: #1abc9c;
+    background: -moz-linear-gradient(top, #bebbaa 0%, #1abc9c 100%);
+    background: -webkit-gradient(linear, top center, bottom center, color-stop(0%, #bebbaa), color-stop(100%, #1abc9c));
+    background: -webkit-linear-gradient(top, #bebbaa 0%, #1abc9c 100%);
+    background: -o-linear-gradient(top, #bebbaa 0%, #1abc9c 100%);
+    background: -ms-linear-gradient(top, #bebbaa 0%, #1abc9c 100%);
+    background: linear-gradient(to bottom, #bebbaa 0%, #1abc9c 100%);
+}
+
+.wpcf7-text:focus,
+.wpcf7-number:focus,
+.wpcf7-select:focus,
+.wpcf7-textarea:focus {
+    border-color: #bebbaa;
+}
+
+[id="submit"],
+.wpcf7-submit,
+.btn--primary {
+    background: #bebbaa;
+}
+
+.statusicon, .red .mediain, .gaz-btn.primary {
+    background: #bebbaa;
+}
+
+.red .pointyTip, .red .pointyTipShadow {
+    border-top-color: #bebbaa;
+}
+
+a, #error, .navbar ul li.current-menu-ancestor > a, .navbar ul li.current-menu-item > a, .pagination i, .page-numbers.current {
+    color: #bebbaa;
+}
+
+.posts-list a:hover, .socialize a:hover, .fat-footer__social a i:hover, .comment h4 a:hover, .comment .comment-reply-link:hover, .welcome span:hover {
+    color: #bebbaa;
+}
+
+.color {
+    background-image: -webkit-linear-gradient(right, #bebbaa 0%, #1abc9c 100%);
+    background-image: linear-gradient(right, #bebbaa 0%, #1abc9c 100%);
+}
+
+.recommend {
+    float: left;
+    display: inline
+}
+
+.theme i {
+    color: #fff300
+}
+
+.ani {
+    position: relative;
+    top: -35px;
+    left: 22px;
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg)
+}
+
+.l2 {
+    position: absolute;
+    width: 3px;
+    height: 5px;
+    background: #fff300;
+    margin: 10px 0px;
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    transform: rotate(-45deg)
+}
+
+.l3 {
+    position: absolute;
+    width: 3px;
+    height: 5px;
+    background: #fff300;
+    margin: 0px 15px;
+    -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    transform: rotate(180deg)
+}
+
+.l4 {
+    position: absolute;
+    width: 3px;
+    height: 5px;
+    background: #fff300;
+    margin: 10px 30px;
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg)
+}
+
+.ani .l2, .ani .l3, .ani .l4 {
+    -webkit-animation: rayos .8s infinite;
+    -moz-animation: rayos .8s infinite;
+    -o-animation: rayos .8s infinite;
+    animation: rayos .8s infinite
+}
+
+@-webkit-keyframes rayos {
+    0% {
+        opacity: 0
+    }
+    100% {
+        opacity: 1
+    }
+}
+
+@-moz-keyframes rayos {
+    0% {
+        opacity: 0
+    }
+    100% {
+        opacity: 1
+    }
+}
+
+@keyframes rayos {
+    0% {
+        opacity: 0
+    }
+    100% {
+        opacity: 1
+    }
+}
+
+[data-tooltip][tabindex="0"] {
+    display: inline-block;
+    position: relative;
+    color: rgba(0, 0, 0, .5);
+    cursor: text
+}
+
+[data-tooltip][tabindex="0"]::after {
+    display: none;
+    position: absolute;
+    bottom: 110%;
+    left: 50%;
+    padding: 2px 5px;
+    max-width: 200px;
+    transform: translateX(-50%);
+    border: 1px solid #c7c7c7;
+    border-radius: 3px;
+    color: rgba(0, 0, 0, .5);
+    white-space: nowrap;
+    background-color: #fff;
+    pointer-events: none;
+    content: attr(data-tooltip)
+}
+
+[data-tooltip][tabindex="0"]::before {
+    display: none;
+    position: absolute;
+    bottom: 110%;
+    left: 50%;
+    z-index: 2;
+    transform: translate(-50%, 50%) rotate(45deg);
+    width: 6px;
+    height: 6px;
+    border: solid #c7c7c7;
+    border-width: 0 1px 1px 0;
+    background-color: #fff;
+    content: ''
+}
+
+[data-tooltip][tabindex="0"]:focus::after, [data-tooltip][tabindex="0"]:focus::before, [data-tooltip][tabindex="0"]:hover::after, [data-tooltip][tabindex="0"]:hover::before {
+    display: block
+}
+
+[data-tooltip][tabindex="0"][data-side="right"]::after, [data-tooltip][tabindex="0"][data-side="right"]::before {
+    bottom: 50%;
+    left: 100%;
+    margin-left: 10px
+}
+
+[data-tooltip][tabindex="0"][data-side="right"]::after {
+    transform: translate(0, 50%)
+}
+
+[data-tooltip][tabindex="0"][data-side="right"]::before {
+    transform: translate(-50%, 50%) rotate(135deg)
+}
