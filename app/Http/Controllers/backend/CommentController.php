@@ -29,14 +29,15 @@ class CommentController extends Controller {
                 $formComment->ip = $ip;     // 记录评论人ip
 
                 // 30秒内不允许两次提交评论
+                $maxTimeBetweenTwoSend = 5;
                 $lastTime = strtotime($service->findLastInsertTimeByIp($ip));
                 $now = time();
                 $pass = $now - $lastTime;
-                if ($pass >= 30) {
+                if ($pass >= $maxTimeBetweenTwoSend) {
                     $service->insert($formComment);
                     return response()->json(Result::success(null, "私信成功, 博主会尽快查看ヘ(_ _ヘ)"));
                 } else {
-                    return response()->json(Result::failed(null, "请不要在30秒内提交两次评论ヘ(_ _ヘ)"));
+                    return response()->json(Result::failed(null, "请不要在5秒内提交两次评论ヘ(_ _ヘ)"));
                 }
             } catch (MyException $e) {
                 return response()->json(Result::failed($formComment, "系统异常, 请检查输入, 重新提交"));

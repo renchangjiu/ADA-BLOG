@@ -27,7 +27,6 @@ function loadArticle() {
 }
 
 
-
 function subSummary(summary) {
     if (summary.length > 138) {
         return summary.substr(0, 138) + "...";
@@ -71,7 +70,6 @@ function search() {
 }
 
 
-
 function submit() {
     $("#submit").click(function () {
         // 从url里获取当前文章的id
@@ -92,13 +90,20 @@ function submit() {
             data: {"artId": artId, "name": name, "content": content},
             dataType: "json",
             success: function (result) {
-                // console.log(result);
                 submitBtn.attr("disabled", false);
                 submitBtn.val("发送");
                 if (result.success) {
-                    // console.log(result);
-                    submitBtn.attr("disabled", false);
-                    submitBtn.val("发送");
+                    submitBtn.attr("disabled", true);
+                    let step = 5;
+                    let interval = setInterval(function () {
+                        submitBtn.val(step);
+                        step--;
+                        if (step === -1) {
+                            clearInterval(interval);
+                            submitBtn.attr("disabled", false);
+                            submitBtn.val("发送");
+                        }
+                    }, 1000);
                     $("#comment-content").val("");
                     $("#errorMsg").empty();
                     localStorage.setItem("comment-name", name);
