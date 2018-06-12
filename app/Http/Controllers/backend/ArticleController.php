@@ -8,7 +8,9 @@ use App\Http\Models\Article;
 use App\Http\Models\Result;
 use App\Http\service\ArticleService;
 use App\Http\utils\ORMUtil;
+use http\Env\Response;
 use Illuminate\Http\Request;
+use stdClass;
 
 class ArticleController extends Controller {
 
@@ -57,6 +59,7 @@ class ArticleController extends Controller {
     // !!! 这里的代码轻易不要修改, 会出现一些莫名其妙的问题
     public function uploadImage(Request $request) {
 
+
         $extension = strrchr($_FILES["file"]["name"], ".");     // .jpg
         $fileName = uniqid() . $extension;    // 新的文件名
         $path = $_SERVER["DOCUMENT_ROOT"] . "storage/images/";      // 保存图片的路径
@@ -76,12 +79,20 @@ class ArticleController extends Controller {
         //     echo "上传文件大小超过限制, 请保持在 ".$maxSize." 字节以下", "\n";
         //     return false;
         // }
+        // var_dump($_FILES);
 
+        $result = new stdClass();
         if (move_uploaded_file($_FILES["file"]["tmp_name"], $file)) {
-            return "{\"errors\":false,\"path\":\"$url\"}";
+            $result->error = false;
+            $result->path = $url;
+            return response()->json($result);
         } else {
-            return "{\"errors\":true, \"msg\":$file}";
+            $result->error = true;
+            $result->msg = $file;
+            return response()->json($result);
         }
+
+
     }
 
 

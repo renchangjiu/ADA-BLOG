@@ -2,6 +2,11 @@
 
 use Illuminate\Support\Facades\Route;
 
+
+// 测试用
+Route::any("/test", "TestController@test");
+
+
 /*
  * 路由
  */
@@ -71,3 +76,4 @@ Route::group(["middleware" => ["html"], "prefix" => "admin"], function () {
 
 
 // todo 草稿箱
+// todo 优化图片上传

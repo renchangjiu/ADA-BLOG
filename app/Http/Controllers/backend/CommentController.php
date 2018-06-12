@@ -48,15 +48,6 @@ class CommentController extends Controller {
     }
 
 
-    /*public function show(Request $request, $id, LetterService $service) {
-        try {
-            $letter = $service->show($id);
-            return response()->json(Result::success($letter));
-        } catch (MyException $e) {
-            return response()->json(Result::failed(null, $e->getData()));
-        }
-    }*/
-
     public function list(Request $request, $page, CommentService $service) {
 
         try {
