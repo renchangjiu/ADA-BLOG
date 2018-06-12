@@ -16,8 +16,8 @@ function loadArticle() {
             if (result.success) {
                 // console.log(result);
                 let data = result.data;
-                $("title").text(data.title);
-                $("#title").text(data.title);
+                $("title").html(data.title);
+                $("#title").html(data.title);
                 $("#editTime").text(data.editTime);
                 $("#content").html(data.content);
                 loadTags(data.tags);
