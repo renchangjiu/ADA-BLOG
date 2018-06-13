@@ -11,7 +11,7 @@ date_default_timezone_set("Asia/Shanghai");
 class TestController extends Controller {
 
     public function test(Request $request) {
-        echo $_SERVER["DOCUMENT_ROOT"];
+        echo getenv("ARTICLE_IMAGE");
     }
 
 

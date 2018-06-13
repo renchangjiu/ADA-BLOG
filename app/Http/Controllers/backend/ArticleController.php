@@ -56,43 +56,66 @@ class ArticleController extends Controller {
 
 
     // 图片上传
-    // !!! 这里的代码轻易不要修改, 会出现一些莫名其妙的问题
     public function uploadImage(Request $request) {
-
 
         $extension = strrchr($_FILES["file"]["name"], ".");     // .jpg
         $fileName = uniqid() . $extension;    // 新的文件名
-        $path = $_SERVER["DOCUMENT_ROOT"] . "storage/images/";      // 保存图片的路径
-        $file = $path . $fileName;
+        $path = getenv("ARTICLE_IMAGE");      // 保存图片的路径
 
         // 被允许的文件扩展名
-        $permitExtension = array(".jpg", ".png", "bmp",);
+        $permitExtension = array(".jpg", ".JPG", ".png", ".PNG", "bmp",);
         if (!in_array($extension, $permitExtension)) {
-            echo "不支持的文件扩展名", "\n";
-            return '{"errors":true, msg:不支持的文件扩展名}';
+            return response()->json(UploadImageResult::failed("filetype", "不支持的文件扩展名"));
         }
 
-        $url = "/storage/images/$fileName";
         // // 被允许的文件最大字节数
-        // $maxSize = 1024 * 1024 * 2;
-        // if ($_FILES["file"]["size"] > $maxSize) {
-        //     echo "上传文件大小超过限制, 请保持在 ".$maxSize." 字节以下", "\n";
-        //     return false;
-        // }
-        // var_dump($_FILES);
-
-        $result = new stdClass();
-        if (move_uploaded_file($_FILES["file"]["tmp_name"], $file)) {
-            $result->error = false;
-            $result->path = $url;
-            return response()->json($result);
-        } else {
-            $result->error = true;
-            $result->msg = $file;
-            return response()->json($result);
+        $maxSize = 1024 * 1024 * 2;
+        if ($_FILES["file"]["size"] > $maxSize) {
+            return response()->json(UploadImageResult::failed(true, "upload image size must <= 2mb"));
         }
 
+        $date = date("Ymd");
+        $image_path = $path . $date;
+        if (!is_dir($image_path)) {
+            mkdir($image_path);
+        }
 
+        $file = "$image_path/$fileName";
+
+        $url = "/article/image/$date/$fileName";      // 返回给前端的图片的URL
+
+        if (move_uploaded_file($_FILES["file"]["tmp_name"], $file)) {
+            return response()->json(UploadImageResult::success($url));
+        } else {
+            return response()->json(UploadImageResult::failed(true, $file));
+        }
+    }
+}
+
+
+class UploadImageResult {
+    public $error;
+    public $path;
+    public $msg;
+
+    /**
+     * UploadImageResult constructor.
+     * @param $error
+     * @param $path
+     * @param $msg
+     */
+    private function __construct($error, $path, $msg) {
+        $this->error = $error;
+        $this->path = $path;
+        $this->msg = $msg;
+    }
+
+    public static function success($path) {
+        return new UploadImageResult(false, $path, null);
+    }
+
+    public static function failed($error, $msg) {
+        return new UploadImageResult($error, null, $msg);
     }
 
 
