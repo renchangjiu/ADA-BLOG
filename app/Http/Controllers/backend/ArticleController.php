@@ -6,11 +6,10 @@ use App\Http\Controllers\Controller;
 use App\Http\Exception\MyException;
 use App\Http\Models\Article;
 use App\Http\Models\Result;
+use App\Http\Models\UploadImageResult;
 use App\Http\service\ArticleService;
 use App\Http\utils\ORMUtil;
-use http\Env\Response;
 use Illuminate\Http\Request;
-use stdClass;
 
 class ArticleController extends Controller {
 
@@ -31,8 +30,6 @@ class ArticleController extends Controller {
     // 修改文章
     public function update(Request $request, ArticleService $service) {
         $a = ORMUtil::input2Obj("App\Http\Models\Article", $request->all());
-        // return response()->json($a);
-        // exit();
         try {
             if (empty($a->id) || empty($a->title) || empty($a->summary) || empty($a->content) || empty($a->tags)) {
                 return response()->json(Result::failed(null, "缺少必要字段"));
@@ -93,30 +90,4 @@ class ArticleController extends Controller {
 }
 
 
-class UploadImageResult {
-    public $error;
-    public $path;
-    public $msg;
 
-    /**
-     * UploadImageResult constructor.
-     * @param $error
-     * @param $path
-     * @param $msg
-     */
-    private function __construct($error, $path, $msg) {
-        $this->error = $error;
-        $this->path = $path;
-        $this->msg = $msg;
-    }
-
-    public static function success($path) {
-        return new UploadImageResult(false, $path, null);
-    }
-
-    public static function failed($error, $msg) {
-        return new UploadImageResult($error, null, $msg);
-    }
-
-
-}

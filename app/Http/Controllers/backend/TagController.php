@@ -10,7 +10,6 @@ use App\Http\service\ArticleService;
 use App\Http\service\TagService;
 use App\Http\utils\ORMUtil;
 use Illuminate\Http\Request;
-use Illuminate\Pagination\LengthAwarePaginator;
 
 class TagController extends Controller {
 

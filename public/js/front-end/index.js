@@ -1,5 +1,11 @@
 $(function () {
+    pageHelper();
+    search();
+});
 
+
+// 分页
+function pageHelper() {
     // 初始化
     let curPage = 1;
     // 点击文章后返回时记住当前页码,
@@ -15,14 +21,10 @@ $(function () {
     $(".pagination").on("click", "a", function () {
         let p = $(this).attr("p");
         loadPage(url, p);
-        // location.reload();
-        // location.href = "#top";
         scrollTo(0, 0);
-        // scrollTo(0, 0);
     });
+}
 
-    search();
-});
 
 /*
     构造展示数据的dom, 需要根据文档的结构来修改
@@ -35,7 +37,7 @@ function loadData(data) {
             '<div class="posts-list js-posts">' +
             '<div class="post post-layout-list" data-aos="fade-up">' +
             '<div class="status_list_item icon_kyubo">' +
-            '<div class="status_user" style="background-image: url(/public/images/article-list.jpg)">' +
+            '<div class="status_user" style="background-image: url(/public/images/article-list/' + getRandomInteger(1, 17) + '.jpg)">' +
             '<div class="status_section">' +
             '<p class="section_p" style="color: #8d908b;font-family: 楷体,serif">' +
             data[i].editTime + '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' +
@@ -104,10 +106,17 @@ function loadPage(url, curPage) {
         type: "GET",
         dataType: "json",  //服务器返回的数据类型
         success: function (result) {
-            loadData(result.data.objects);
-            loadPageBar(result.data.curPage, result.data.totalPage);
-            // 把当前页码放入sessionStorage, 每次请求后更新
-            sessionStorage.setItem("p", curPage);
+            if (result.success) {
+                loadData(result.data.objects);
+                loadPageBar(result.data.curPage, result.data.totalPage);
+                // 把当前页码放入sessionStorage, 每次请求后更新
+                sessionStorage.setItem("p", curPage);
+            } else {
+                if (result.status === 450) {
+                    sessionStorage.setItem("p", 1);
+                }
+            }
+
         }
     });
 
@@ -136,6 +145,11 @@ function search() {
             }
         });
     });
+}
+
+// [min, max]
+function getRandomInteger(min, max) {
+    return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
 

@@ -25,7 +25,7 @@ class ArticleDao implements Dao {
     }
 
     public function list($index, $length) {
-        $sql = "SELECT * FROM t_article ORDER BY editTime DESC limit ?, ?";
+        $sql = "SELECT id, title, summary, tags, readNum, editTime FROM t_article ORDER BY editTime DESC limit ?, ?";
         $res = MyDB::select($sql, [$index, $length]);
 
         return $articles = ORMUtil::db2list(Article::class, $res);

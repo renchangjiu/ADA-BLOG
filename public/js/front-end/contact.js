@@ -7,24 +7,29 @@ $(function () {
             alert("message 是必填项");
             return;
         }
-        let formData = $("#form").serialize();
+        let formName = $("#name").val();
+        let formEmail = $("#email").val();
+        let formMessage = $("#message").val();
+
         submitBtn.attr("disabled", true);
         submitBtn.val("发送中...");
         $.ajax({
             url: "/api/letter/send",
             type: "POST",
-            data: formData,
+            data: {"name": formName, "email": formEmail, "message": formMessage},
             dataType: "json",  //服务器返回的数据类型
             success: function (result) {
-                console.log(result);
                 submitBtn.attr("disabled", false);
                 submitBtn.val("Send");
                 if (result.success) {
-                    // console.log(result);
                     submitBtn.attr("disabled", false);
                     submitBtn.val("Send");
                     $("#message").val(" ");
-                    alert(result.message);
+                    // alert(result.message);
+                    $("#resultMessage").text(result.message);
+                    $('body,html').animate({
+                        scrollTop: 0
+                    }, 1000);
                 } else {
                     alert(result.message);
                 }

@@ -5,12 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Exception\MyException;
 use App\Http\Models\Result;
 use App\Http\service\ArticleService;
-use Illuminate\Auth\Access\Response;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Redis;
-use Illuminate\Support\Facades\View;
-use stdClass;
 
 
 class ArticleController extends Controller {
@@ -20,7 +15,7 @@ class ArticleController extends Controller {
             $articles = $service->list($page);
             return response()->json(Result::success($articles));
         } catch (MyException $e) {
-            return response()->json(Result::failed(null, $e->getData()));
+            return response()->json(Result::failed(null, $e->getData(), 450));
         }
     }
 

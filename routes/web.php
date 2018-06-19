@@ -17,7 +17,7 @@ Route::middleware(["mobile", "html"])->group(function () {
     Route::view("/", "index");
 });
 
-Route::middleware(["html"])->group(function () {
+Route::middleware(["html"])->group(function() {
     // 前台首页
     // Route::view("/", "index");
 
@@ -33,8 +33,11 @@ Route::middleware(["html"])->group(function () {
     // 联系
     Route::view("/contact", "contact");
 
-    // 登录
+    // 管理员登录
     Route::view("/admin/sign-in", "back-end/sign-in");
+
+    // 按标签id搜索
+    Route::view("/tag/articles/{tagId}", "search")->where("tagId", "[0-9]+");
 
 });
 
@@ -76,4 +79,3 @@ Route::group(["middleware" => ["html"], "prefix" => "admin"], function () {
 
 
 // todo 草稿箱
-// todo 优化图片上传

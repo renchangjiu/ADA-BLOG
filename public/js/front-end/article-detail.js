@@ -38,7 +38,7 @@ function loadTags(tags) {
     let tagsEle = $("#tags");
     let tagsArr = tags.split(" ");
     for (let tag of tagsArr) {
-        let aEle = "<a href='...'>" + tag + "&nbsp;&nbsp;</a>";
+        let aEle = "<a href='#'>" + tag + "&nbsp;&nbsp;</a>";
         tagsEle.append(aEle);
     }
 }
@@ -69,7 +69,7 @@ function search() {
     });
 }
 
-
+// 提交评论
 function submit() {
     $("#submit").click(function () {
         // 从url里获取当前文章的id

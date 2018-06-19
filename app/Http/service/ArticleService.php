@@ -8,7 +8,6 @@ use App\Http\Dao\ReadLogDao;
 use App\Http\Exception\MyException;
 use App\Http\Models\Article;
 use App\Http\Models\Page;
-use App\Http\Models\ReadLog;
 use App\Http\utils\MyDB;
 use App\Http\utils\ORMUtil;
 

@@ -12,6 +12,12 @@ use Illuminate\Support\Facades\Request;
  * implements Traversable
  */
 class Result {
+    /* 状态码:
+    450: 文章-请求的页码超过最大页码
+
+
+     */
+
 
     // 是否成功
     public $success;

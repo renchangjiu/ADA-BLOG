@@ -17,8 +17,10 @@ class TagService implements Service {
     }
 
     public function getNameById($tagId) {
-        $sql = "select * from t_tag where id = ?";
-        $res = MyDB::select($sql, [$tagId]);
+        $res = $this->td->getNameById($tagId);
+        if (empty($res)) {
+            throw new MyException(0, "未查到");
+        }
         $tagName = $res[0]->name;
         return $tagName;
     }

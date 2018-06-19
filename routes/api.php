@@ -40,8 +40,7 @@ Route::any("/search", "ArticleController@search");
 Route::any("/comments/{articleId}/{page}", "CommentController@findListByArticleId")->where(["articleId" => "[0-9]+", "page" => "[0-9]+"]);
 
 // 文章 : 返回某标签下所有文章
-Route::any("/articles/tag/{tagId}", "ArticleController@findArticlesByTag")->where("tagId", "[0-9]+");
-
+Route::any("/tag/articles/{tagId}", "ArticleController@findArticlesByTag")->where("tagId", "[0-9]+");
 
 // 返回标签列表
 Route::get("/tags", "backend\TagController@list");

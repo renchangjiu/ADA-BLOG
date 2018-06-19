@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="zh-cmn-Hans">
 <head>
     <meta charset="UTF-8">
@@ -8,112 +8,142 @@
     <meta name="author" content="su">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>Contact Me</title>
-    <link rel="stylesheet" href="/public/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/public/css/animate.css">
-    <link rel="stylesheet" href="/public/css/font-awesome.min.css">
-    <link rel="stylesheet" href="/public/css/templatemo-style.css">
-    <link rel="stylesheet" type="text/css" href="/public/css/main.css"/>
     <link rel="shortcut icon" href="/public/images/favicon.ico" type="image/x-icon"/>
     <link rel="canonical" href="http://www.muzhez.com/"/>
+    <!--css-->
+    <link rel="stylesheet" href="/public/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/public/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/public/css/pe-icon-7-stroke.css">
+    <link rel="stylesheet" href="/public/css/animate.css">
+    <link rel="stylesheet" href="/public/css/contact.css">
+    <link rel="stylesheet" href="/public/css/font-end-foot.css">
 </head>
-<body data-spy="scroll" data-target=".navbar-collapse" data-offset="50" style="overflow-x: hidden; overflow-y: hidden;">
-<div class="site-wrapper">
-    <header class="site-header outer" style="background-color:#bec0bd">
-        <div class="inner">
-            <nav class="site-nav">
-                <div class="site-nav-left">
-                    <a class="site-nav-logo" href="/">Ada</a>
-                    <ul class="nav" role="menu">
-                        <li class="nav-home nav-current" role="menuitem"><a href="/">HOME</a></li>
-                        <li class="nav-php" role="menuitem"><a href="/about">ABOUT</a></li>
-                        <li class="nav-front-end" role="menuitem"><a href="/contact">CONTACT</a></li>
+
+<body class="contact-page" data-spy="scroll" data-target=".navbar-collapse" data-offset="50">
+<div class="wrapper" style="background-color: #fdfffc">
+    <header id="header" class="header">
+        <div class="container">
+            <h1 class="logo pull-left">
+                <a href="/">
+                    <span class="logo-title">ADA</span>
+                </a>
+            </h1>
+            <nav id="main-nav" class="main-nav navbar-right" role="navigation">
+                <div class="navbar-collapse collapse" id="navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="nav-item"><a href="/">Home</a></li>
+                        <li class="nav-item"><a href="/about">ABOUT</a></li>
+                        <li class="nav-item"><a href="/contact">CONTACT</a></li>
+                        <!--<li class="active nav-item"><a href="/contact">Contact</a></li>-->
+                        <li class="nav-item nav-item-cta last">
+                            <a class="rss-button" href="https://github.com/renchangjiu/Ada-BLOG.git" target="_blank">
+                                <!--<img src="/public/images/GitHub-Mark-Light-120px-plus.png" />-->
+                                GitHub
+                            </a>
+                        </li>
                     </ul>
-                </div>
-                <div class="site-nav-right">
-                    <a class="rss-button" href="https://github.com/renchangjiu/Ada-BLOG.git" target="_blank"
-                       rel="noopener">
-                        <img src="/public/images/GitHub-Mark-Light-120px-plus.png" style="width: 40px"/>
-                    </a>
                 </div>
             </nav>
         </div>
     </header>
 
-    <!-- Contact Section start -->
-    <section id="contact" class="parallax-section">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6 col-sm-12">
-                    <div class="contact-form">
-                        <div class="wow fadeInUp section-title" data-wow-delay="0.2s">
-                            <h1>Say Hello...</h1>
-                            <p style="color: red" id="error">
-                            </p>
-                            <p style="color: #d2d2af" class="wow">欢迎来信 : &nbsp;QQ: 1359581862 &nbsp;&nbsp;|&nbsp;&nbsp;
-                                <a href="mailto:dsumuzhe@163.com">dsumuzhe@163.com</a>
-                            </p>
+    <!-- ******CONTACT MAIN****** -->
+    <section id="contact-main" class="contact-main section ">
+        <div class="container text-center"  >
+            <div class="wow fadeInUp" data-wow-delay="0.3s">
+                <h2 class="title">Get in touch</h2>
+                <p class="intro">I'd love to hear from you. </p>
+            </div>
+            <div class="row wow fadeInUp" data-wow-delay="0.5s">
+                <div class="item col-md-4 col-sm-12 col-xs-12">
+                    <div class="item-inner">
+                        <div class="icon">
+                            <span class="pe-icon pe-7s-mail-open-file"></span>
                         </div>
-
-                        <div id="contact-form">
-                            <form id="form">
-                                <div class="wow fadeInUpd" data-wow-delay="1s">
-                                    <p style="font-size: 13px">Your Name</p>
-                                    <input name="name" type="text" class="form-control" id="fullname">
-                                </div>
-                                <div class="wow fadeInUp" data-wow-delay="1.2s">
-                                    <p style="font-size: 13px">Your Email</p>
-                                    <input name="email" type="email" class="form-control" id="email">
-                                </div>
-                                <div class="wow fadeInUp" data-wow-delay="1.4s">
-                                    <p style="font-size: 13px">Write your message...&nbsp;<span
-                                            style="color: red">*</span></p>
-                                    <textarea name="message" rows="5" class="form-control" id="message"></textarea>
-                                </div>
-                                <div class="wow fadeInUp col-md-6 col-sm-8" data-wow-delay="1.6s">
-                                    <input name="submit" type="button" class="form-control" id="submit" value="Send">
-                                </div>
-                            </form>
+                        <div class="details">
+                            <h4>Email</h4>
+                            <p><a href="#">dsumuzhe@163.com</a></p>
                         </div>
-
+                    </div>
+                </div>
+                <div class="item col-md-4 col-sm-12 col-xs-12">
+                    <div class="item-inner">
+                        <div class="icon">
+                            <span class="pe-icon pe-7s-phone"></span>
+                        </div>
+                        <div class="details">
+                            <h4>Phone</h4>
+                            <p class="phone">13865924571</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="item col-md-4 col-sm-12 col-xs-12 last">
+                    <div class="item-inner">
+                        <div class="icon">
+                            <span class="pe-icon pe-7s-map-2"></span>
+                        </div>
+                        <div class="details">
+                            <h4>QQ</h4>
+                            <p class="address">1359581862</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    <!-- Contact Section end -->
-
-
-    <br><br><br><br>
-    <!-- footer section -->
-    <br><br><br><br>
-    <footer>
-        <div class="container">
-            <div class="row">
-
-                <div class="col-md-12 col-sm-12">
-                    <div class="wow fadeInUp footer-copyright" data-wow-delay="1.8s">
-                        <p style="font-size: 13PX;">
-                            <i>&copy; 2017- All Rights Reserved. more write, more read&nbsp;&nbsp;</i>
-                            <a href="/" target="_blank" title="muzhe">Ada-BLOG</a>
-                        </p>
+    <section class="container contact-form-section wow fadeInUp" data-wow-delay="0.5s">
+        <h3 class="title text-center">Contact Form</h3>
+        <p class="intro text-center" id="resultMessage" style="font-family: 楷体,serif; color: red"></p>
+        <div class="row text-center">
+            <div class="contact-form col-md-6 col-sm-12 col-xs-12 col-md-offset-3 col-sm-offset-0 col-xs-offset-0">
+                <form class="form" id="contact-form">
+                    <div class="form-group name">
+                        <label class="sr-only" for="name">Your name</label>
+                        <input id="name" name="name" type="text" class="form-control" placeholder="Your name">
                     </div>
-                </div>
+                    <div class="form-group email">
+                        <label class="sr-only" for="email">Your email</label>
+                        <input id="email" name="email" type="email" class="form-control" placeholder="Your email">
+                    </div>
+                    <div class="form-group message">
+                        <label class="sr-only" for="message">Your message</label>
+                        <textarea name="message" id="message" class="form-control" rows="8" placeholder="* Your message"></textarea>
+                    </div>
+                    <button type="submit" id="submit" class="btn btn-block btn-cta-primary">Send Message</button>
+                </form>
             </div>
         </div>
+    </section>
+
+    <br><br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br><br><br>
+    <footer>
+        <div class="wow fadeInUp" data-wow-delay="1.8s">
+            <p style="font-size: 13PX;">
+                <i>&copy; 2017- All Rights Reserved. more write, more read&nbsp;&nbsp;</i>
+                <a href="/" target="_blank" title="muzhe">Ada-BLOG</a>
+            </p>
+        </div>
     </footer>
-    <br><br><br><br>
-
-</div>
-
+</div><!--//wrapper-->
 
 <script src="/public/js/common/jquery-1.12.4.min.js" type="text/javascript"></script>
 <script src="/public/js/common/bootstrap.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="/public/js/common/bootstrap-hover-dropdown.min.js"></script>
+<script type="text/javascript" src="/public/js/common/jquery.inview.min.js"></script>
+<!--<script type="text/javascript" src="/public/js/common/back-to-top.js"></script>-->
+<script type="text/javascript" src="/public/js/common/jquery.placeholder.min.js"></script>
+<script type="text/javascript" src="/public/js/common/jquery.fitvids.js"></script>
+<script type="text/javascript" src="/public/js/common/jquery.flexslider-min.js"></script>
+<script type="text/javascript" src="/public/js/front-end/contact-main.js"></script>
+<!--<script type="text/javascript" src="assets/plugins/isMobile/isMobile.min.js"></script>-->
+<script src="/public/js/front-end/contact.js" type="text/javascript"></script>
+<!--瀑布式-->
 <script src="/public/js/common/jquery.parallax.js" type="text/javascript"></script>
 <script src="/public/js/common/smoothscroll.js" type="text/javascript"></script>
 <script src="/public/js/common/wow.min.js" type="text/javascript"></script>
 <script src="/public/js/common/custom.js" type="text/javascript"></script>
-<!--<script src="/public/js/common.js" type="text/javascript"></script>-->
-<script src="/public/js/front-end/contact.js" type="text/javascript"></script>
-
 </body>
 </html>
+
+

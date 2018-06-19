@@ -1,0 +1,52 @@
+/*
+* 四处copy 来的css.....
+*/
+body, ul, ol, li, p, h1, h2, h3, h4, h5, h6, form, fieldset, table, td,
+	img, div, dl, dt, dd, em {
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+
+body {
+	font-size: 12px;
+	font-family: '\65B0\5B8B\4F53', '\5B8B\4F53', Verdana;
+	background: #f3f3f3;
+}
+
+.topadv {
+	width: 1170px;
+	overflow: hidden;
+	margin: 20px auto 0;
+}
+
+.main-container {
+	width: 1140px;
+	min-height: 650px;
+	margin: 0 auto;
+	overflow: hidden;
+}
+
+.con-l {
+	width: 820px; /*overflow:hidden;*/
+	float: left;
+}
+
+
+
+
+
+.pointout {
+	font-family: 'Microsoft Yahei';
+	font-size: 14px;
+	color: #333;
+	margin-top: 15px;
+	margin-bottom: 5px;
+}
+
+.intro-wrap {
+	padding-bottom: 20px;
+	border-bottom: 1px dotted #ccc;
+}
+
+

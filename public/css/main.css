@@ -404,7 +404,7 @@ body {
 .outer {
     position: relative;
     padding: 0 4vw;
-    overflow: hidden;
+    /*overflow: hidden;*/
 }
 
 .inner {
@@ -695,7 +695,7 @@ body {
     flex-wrap: wrap;
     margin: 0 -20px;
     padding: 40px 0 0;
-    overflow:hidden;
+    overflow: hidden;
 
 }
 

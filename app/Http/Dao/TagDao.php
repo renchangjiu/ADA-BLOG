@@ -10,6 +10,12 @@ use Tests\Unit\ExampleTest;
 
 class TagDao implements Dao {
 
+    public function getNameById($tagId) {
+        $sql = "select * from t_tag where id = ?";
+        return MyDB::select($sql, [$tagId]);
+    }
+
+
     public function getTotalCount() {
         $sql = "select count(id) as count from t_tag";
         $res = MyDB::select($sql);

@@ -7,7 +7,6 @@ use App\Http\Controllers\Controller;
 use App\Http\Exception\MyException;
 use App\Http\Models\Result;
 use App\Http\service\SignInLogService;
-use Illuminate\Http\Request;
 
 class SignInLogController extends Controller {
 

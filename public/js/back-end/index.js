@@ -1,6 +1,12 @@
 $(function () {
 
-    // 初始化
+    pageHelper();
+
+});
+
+
+function pageHelper() {
+    // 初始化页码
     let curPage = 1;
     // 实现点击文章后返回时记住当前页码
     if (typeof(Storage) !== "undefined") {
@@ -15,8 +21,7 @@ $(function () {
         let p = $(this).attr("ap");
         loadPage(url, p);
     });
-
-});
+}
 
 /*
     构造展示数据的dom, 需要根据文档的结构来修改
@@ -123,6 +128,9 @@ function loadPage(url, curPage) {
             } else {
                 if (result.status === 401) {
                     location.href = "/admin/sign-in";
+                } else if (result.status === 450) {
+                    sessionStorage.setItem("ap", 1);
+                    pageHelper();
                 }
             }
         }
