@@ -1,6 +1,8 @@
 $(function () {
+    readCache();
     tagList();
     submit();
+
 });
 
 function submit() {
@@ -63,4 +65,32 @@ function tagList() {
             }
         }
     });
+}
+
+// 缓存文章到本地
+function writeCache() {
+    let title = $("#title").val();
+    let summary = $("#summary").val();
+    let content = tinyMCE.get("content").getContent();
+    localStorage.setItem("article-title", title);
+    localStorage.setItem("article-summary", summary);
+    localStorage.setItem("article-content", content);
+}
+
+
+// 清空本地缓存的文章
+function clearCache() {
+    localStorage.removeItem("article-title");
+    localStorage.removeItem("article-summary");
+    localStorage.removeItem("article-content");
+}
+
+// 读取本地缓存
+function readCache() {
+    let title = localStorage.getItem("article-title");
+    let summary = localStorage.getItem("article-summary");
+    let content = localStorage.getItem("article-content");
+    $("#title").val(title);
+    $("#summary").val(summary);
+    $("#content").val(content);
 }
